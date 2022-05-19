@@ -78,3 +78,46 @@
 // const [f1] = fibonacciFunc();
 // // console.log(f1, f2, f3); // 1 2 3
 // console.log(typeof f1);
+
+
+// // ...[1, 2, 3]은 [1, 2, 3]을 개별 요소로 분리한다(→ 1, 2, 3)
+// console.log(...[1, 2, 3]); // 1 2 3
+
+// // 문자열은 이터러블이다.
+// console.log(...'Hello'); // H e l l o
+
+// // Map과 Set은 이터러블이다.
+// console.log(...new Map([['a', '1'], ['b', '2']])); // [ 'a', '1' ] [ 'b', '2' ]
+// console.log(...new Set([1, 2, 3])); // 1 2 3
+
+// // 이터러블이 아닌 일반 객체는 스프레드 문법의 대상이 될 수 없다.
+// console.log(...{ a: 1, b: 2 });
+// // TypeError: Found non-callable @@iterator
+
+// // 스프레드 문법의 결과는 값이 아니다.
+// const list = ...[1, 2, 3]; // SyntaxError: Unexpected token ...
+
+
+// const arr = [1, 2, 3];
+
+// // 배열 arr의 요소 중에서 최대값을 구하기 위해 Math.max를 사용한다.
+// const max = Math.max(arr); // -> NaN
+
+
+// const arr = [1, 2, 3];
+
+// // 스프레드 문법을 사용하여 배열 arr을 1, 2, 3으로 펼쳐서 Math.max에 전달한다.
+// // Math.max(...[1, 2, 3])은 Math.max(1, 2, 3)과 같다.
+// const max = Math.max(...arr); // -> 3
+
+
+// Rest 파라미터는 인수들의 목록을 배열로 전달받는다.
+function foo(...rest) {
+  console.log(rest); // 1, 2, 3 -> [ 1, 2, 3 ]
+}
+
+// 스프레드 문법은 배열과 같은 이터러블을 펼쳐서 개별적인 값들의 목록을 만든다.
+// [1, 2, 3] -> 1, 2, 3
+foo(...[1, 2, 3]);
+
+
